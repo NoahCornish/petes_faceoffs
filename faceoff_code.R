@@ -1,4 +1,4 @@
-#data code
+#data code v0.1.0
 
 
 library(googlesheets4)
@@ -19,9 +19,9 @@ faceoff_cleaned <- faceoff_raw %>%
 
 player_win_loss <- faceoff_cleaned %>%
   group_by(PLAYER) %>%
-  summarise(Wins = sum(`W/L` == "WIN"),
-            Losses = sum(`W/L` == "LOSS")) %>% 
-  mutate(Winning_Percentage = paste0(round((Wins / (Wins + Losses)) * 100, 1), "%")) %>%
-  arrange(desc(as.numeric(sub("%", "", Winning_Percentage)))) %>% 
-  rename(`%` = Winning_Percentage)
+  summarise(FOW = sum(`W/L` == "WIN"),  # Faceoffs Won
+            FOA = n(),  # Faceoffs Attempted (Total of Wins and Losses)
+            `FO%` = paste0(round((FOW / FOA) * 100, 1), "%")) %>%
+  arrange(desc(as.numeric(sub("%", "", `FO%`))))
+
 

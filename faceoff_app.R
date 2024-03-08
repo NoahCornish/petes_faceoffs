@@ -1,4 +1,4 @@
-#shinyapp
+#shinyapp v0.1.0
 
 
 # Load and prepare the data ---
@@ -16,7 +16,7 @@ source("faceoff_code.R")
 ui <- fluidPage(
   titlePanel("FACEOFF TRACKING BETA"),
   # Instructions for users to refresh the page for updated data
-  HTML("<p>To see the most recent data, please <strong>refresh</strong> the page.</p>"),
+  HTML("<p>To see the most recent data, <strong>refresh</strong> the page.</p>"),
   DTOutput("win_loss_table")
 )
 
@@ -31,8 +31,10 @@ server <- function(input, output, session) {
               options = list(pageLength = nrow(player_win_loss), 
                              searching = FALSE, 
                              paging = FALSE, # Disables pagination
-                             autoWidth = TRUE),
-              fillContainer = FALSE) # Adjusts the table width to the content
+                             autoWidth = TRUE,
+                             info = FALSE),
+              fillContainer = FALSE, # Adjusts the table width to the content
+    rownames = FALSE)
   })
 }
 
