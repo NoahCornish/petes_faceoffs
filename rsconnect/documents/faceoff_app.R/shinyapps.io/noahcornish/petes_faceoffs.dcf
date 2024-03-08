@@ -1,0 +1,13 @@
+name: petes_faceoffs
+title: petes_faceoffs
+username:
+account: noahcornish
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 11441040
+bundleId: 8349899
+url: https://noahcornish.shinyapps.io/petes_faceoffs/
+when: 1709915771.22785
+lastSyncTime: 1709915771.22786
+asMultiple: FALSE
+asStatic: FALSE
